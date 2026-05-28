@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #010a15;
+  --panel: rgba(255, 255, 255, 0.03);
+  --panel-strong: rgba(9, 20, 34, 0.72);
+  --border: rgba(255, 255, 255, 0.10);
+  --teal: #4ca2ff;
+  --cyan: #38b6ff;
+  --pink: #f43f5e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  color: white;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(76, 162, 255, 0.18), transparent 24%),
+    radial-gradient(circle at 80% 0%, rgba(56, 182, 255, 0.14), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(244, 63, 94, 0.08), transparent 24%),
+    linear-gradient(180deg, #010a15 0%, #04101d 48%, #07111f 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(76, 162, 255, 0.24);
+  color: white;
+}
+
+@keyframes blobOne {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+  50% { transform: translate3d(8%, 6%, 0) rotate(180deg) scale(1.06); }
+  100% { transform: translate3d(0, 0, 0) rotate(360deg) scale(1); }
+}
+
+@keyframes blobTwo {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+  50% { transform: translate3d(-8%, 7%, 0) rotate(-180deg) scale(1.08); }
+  100% { transform: translate3d(0, 0, 0) rotate(-360deg) scale(1); }
+}
+
+@keyframes blobThree {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4%, -5%, 0) scale(1.05); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes pulseOutline {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(76, 162, 255, 0.14), 0 0 18px rgba(76, 162, 255, 0.06); }
+  50% { box-shadow: 0 0 0 1px rgba(76, 162, 255, 0.24), 0 0 24px rgba(76, 162, 255, 0.10); }
+}
+
+@keyframes breatheGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(76, 162, 255, 0.20); }
+  50% { box-shadow: 0 0 18px rgba(76, 162, 255, 0.28); }
+}
+
+@keyframes explodeHover {
+  0% { box-shadow: 0 0 0 rgba(76, 162, 255, 0.0); }
+  100% { box-shadow: 0 0 24px rgba(76, 162, 255, 0.18), 0 0 38px rgba(56, 182, 255, 0.10); }
+}
+
+.glass-panel {
+  backdrop-filter: blur(10px);
+  background: rgba(7, 18, 29, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  transform: translateZ(0);
+}
+
+.neon-outline {
+  box-shadow: 0 0 0 1px rgba(76, 162, 255, 0.12);
+}
+
+.wallet-glow {
+  box-shadow: 0 0 12px rgba(76, 162, 255, 0.16);
+}
+
+.cyber-bg {
+  position: relative;
+  isolation: isolate;
+}
+
+.cyber-bg::before,
+.cyber-bg::after {
+  content: '';
+  position: fixed;
+  inset: auto;
+  pointer-events: none;
+  border-radius: 9999px;
+  filter: blur(64px);
+  opacity: 0.45;
+  z-index: -2;
+}
+
+.cyber-bg::before {
+  top: -1rem;
+  left: -4rem;
+  width: 22rem;
+  height: 22rem;
+  background: radial-gradient(circle, rgba(76, 162, 255, 0.42) 0%, rgba(56, 182, 255, 0.18) 35%, transparent 72%);
+  animation: blobOne 44s linear infinite;
+}
+
+.cyber-bg::after {
+  top: 14rem;
+  right: -5rem;
+  width: 24rem;
+  height: 24rem;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.24) 0%, rgba(56, 182, 255, 0.18) 45%, transparent 72%);
+  animation: blobTwo 48s linear infinite;
+}
+
+.bg-blob {
+  position: fixed;
+  border-radius: 9999px;
+  filter: blur(72px);
+  pointer-events: none;
+  z-index: -2;
+  animation: blobThree 40s linear infinite;
+  will-change: transform;
+  opacity: 0.36;
+}
+
+.active-nav-text {
+  text-shadow: 0 0 10px rgba(76, 162, 255, 0.18);
+}
+
+.token-badge {
+  background: linear-gradient(135deg, rgba(76, 162, 255, 0.22), rgba(56, 182, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.metric-positive {
+  box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.12);
+}
+
+.metric-neutral {
+  box-shadow: inset 0 0 0 1px rgba(76, 162, 255, 0.12);
+}
+
+.swap-button-hover:hover {
+  box-shadow: 0 0 16px rgba(76, 162, 255, 0.14);
+}
+
+.cyber-bg::before,
+.cyber-bg::after,
+.wallet-glow,
+.neon-outline {
+  will-change: transform, box-shadow;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cyber-bg::before,
+  .cyber-bg::after,
+  .bg-blob,
+  .wallet-glow,
+  .neon-outline,
+  .swap-button-hover:hover {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cyber-bg::before,
+  .cyber-bg::after,
+  .bg-blob {
+    animation: none;
+    opacity: 0.18;
+  }
+}
